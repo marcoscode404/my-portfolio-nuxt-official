@@ -46,6 +46,8 @@ npx nuxi upgrade
 <!-- ATUALIZA TODOS OS MODULOS DO PACKAGE.JSON AO MESMO TEMPO -->
 pnpm up --latest 
 
+<!-- CONFETTI -->
+pnpm add vue-confetti-explosion
 
 ----------------------------------------
 

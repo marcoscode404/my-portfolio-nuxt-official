@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useMemory, useOnline, useWindowSize } from '@vueuse/core';
+import ConfettiExplosion from "vue-confetti-explosion";
 
 interface InterfaceProps {
     name?: string;
@@ -48,12 +49,26 @@ onMounted(async () => {
     getGitHubProfileInfos();
 })
 
+
+// confetti
+const visible = ref(false);
+
+const explode = async () => {
+    visible.value = false;
+    await nextTick();
+    visible.value = true;
+};
+
 </script>
 
 <template>
     <main class="flex gap-7 container m-auto mt-4 h-[calc(100vh-100px)] flex-wrap">
         <aside class="w-96">
             <div class="fixed">
+                <div>
+                    <ConfettiExplosion :stageHeight="1000" />
+                </div>
+
                 <div class="w-96 border dark:bg-token_bgHeader overflow-hidden h-fit
                 rounded-md dark:border-msDarkHeader leading-7 text-gray-700 dark:text-gray-300">
                     <!-- banner -->
@@ -67,10 +82,8 @@ onMounted(async () => {
                         w-[10.95rem] h-[10rem] group-data-[reduced=&quot;true&quot;]:animate-reduce-large-avatar 
                         group-data-[reduced=&quot;false&quot;]:animate-restore-large-avatar group-hover:brightness-75">
                                 <button @click="isOpenModal = true">
-                                    <UAvatar :alt="collectData?.name" 
-                                    :img-class="'h-full w-full object-cover p-1'"
-                                        :src="collectData?.avatar_url" loading="lazy" 
-                                        class="!dark:bg-token_bgHeader 
+                                    <UAvatar :alt="collectData?.name" :img-class="'h-full w-full object-cover p-1'"
+                                        :src="collectData?.avatar_url" loading="lazy" class="!dark:bg-token_bgHeader 
                                         bg-gradient-to-r from-purple-700 via-pink-500 to-yellow-500
                             mx-auto text-center h-[7.5rem] w-[7.5rem] 
                             rounded-full" />
@@ -106,11 +119,14 @@ onMounted(async () => {
                         </p>
 
                         <div class="flex justify-center my-7 text-xs">
-                            <p class="dark:bg-msDarkHover py-1.5 dark:text-gray-100 rounded-md 
+                            <ConfettiExplosion v-if="visible" :stageHeight="1000" />
+
+                            <button @click="explode"
+                            class="dark:bg-msDarkHover py-1.5 dark:text-gray-100 rounded-md 
                                 px-4 font-semibold bg-slate-50 border dark:border-gray-600">
                                 <span class="dark:text-yellow-400 text-yellow-500 mr-1.5">JS</span>
                                 JAVASCRIPT
-                            </p>
+                            </button>
                         </div>
                     </div>
 
@@ -130,12 +146,13 @@ onMounted(async () => {
                             <li>
                                 <button class="dark:bg-msDarkHover 
                                 bg-slate-200 rounded-full p-2">
-                                    <GlobalIcon name="line-md:github-loop"  />
+                                    <GlobalIcon name="line-md:github-loop" />
                                 </button>
                             </li>
                             <li>
                                 <button class="bg-slate-200 dark:bg-msDarkHover rounded-full p-2">
-                                    <GlobalIcon name="ri:linkedin-fill" class="w-6 h-6 dark:text-gray-300 text-blue-600" />
+                                    <GlobalIcon name="ri:linkedin-fill"
+                                        class="w-6 h-6 dark:text-gray-300 text-blue-600" />
                                 </button>
                             </li>
                         </ul>
@@ -178,56 +195,33 @@ onMounted(async () => {
                         <div>
                             <strong>Tecnologias</strong>
                             <div class="flex flex-wrap gap-2 mt-2">
-                                <UBadge color="gray" label="JAVASCRIPT"
-                                    class="dark:bg-token_bgDark font-bold"
-                                />
-                                <UBadge color="gray" label="TYPESCRIPT"
-                                    class="dark:bg-token_bgDark font-bold"
-                                />
-                                <UBadge color="gray" label="PYTHON" 
-                                class="dark:bg-token_bgDark font-bold"
-                                />
-                                <UBadge color="gray" label="VUE"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="NUXT"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="REACT"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="FIGMA"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="TAILWINDCSS"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="LINUX"
-                                class="dark:bg-token_bgDark font-bold"/>
-                                <UBadge color="gray" label="WINDOWNS"
-                                class="dark:bg-token_bgDark font-bold"/>
+                                <UBadge color="gray" label="JAVASCRIPT" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="TYPESCRIPT" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="PYTHON" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="VUE" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="NUXT" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="REACT" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="FIGMA" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="TAILWINDCSS" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="LINUX" class="dark:bg-token_bgDark font-bold" />
+                                <UBadge color="gray" label="WINDOWNS" class="dark:bg-token_bgDark font-bold" />
                             </div>
 
                             <div class="flex flex-col mt-4">
                                 <strong>Outros</strong>
                                 <div class="flex gap-2 mt-2">
-                                    <UBadge color="gray" label="HELP DESK"
-                                        class="dark:bg-token_bgDark font-bold"
-                                    />
-                                    <UBadge color="gray" label="PHOTOMAKER"
-                                        class="dark:bg-token_bgDark font-bold"
-                                    />
+                                    <UBadge color="gray" label="HELP DESK" class="dark:bg-token_bgDark font-bold" />
+                                    <UBadge color="gray" label="PHOTOMAKER" class="dark:bg-token_bgDark font-bold" />
 
-                                    <UBadge color="gray" label="EDIÇÃO"
-                                        class="dark:bg-token_bgDark font-bold"
-                                    />
+                                    <UBadge color="gray" label="EDIÇÃO" class="dark:bg-token_bgDark font-bold" />
                                 </div>
                             </div>
 
                             <div class="flex flex-col mt-4">
                                 <strong>Idiomas</strong>
                                 <div class="flex gap-2 mt-2">
-                                    <UBadge color="gray" label="PORTUGUÊS"
-                                        class="dark:bg-token_bgDark font-bold"
-                                    />
-                                    <UBadge color="gray" label="INGLÊS BÁSICO"
-                                        class="dark:bg-token_bgDark font-bold"
-                                    />
+                                    <UBadge color="gray" label="PORTUGUÊS" class="dark:bg-token_bgDark font-bold" />
+                                    <UBadge color="gray" label="INGLÊS BÁSICO" class="dark:bg-token_bgDark font-bold" />
                                 </div>
                             </div>
 
