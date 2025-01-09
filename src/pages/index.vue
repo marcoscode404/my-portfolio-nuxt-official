@@ -2,6 +2,20 @@
 import { useMemory, useOnline, useWindowSize } from '@vueuse/core';
 import ConfettiExplosion from "vue-confetti-explosion";
 
+import { useIntervalFn } from '@vueuse/core'
+import { rand } from '@vueuse/shared'
+import { ref } from 'vue'
+
+// --------------------
+const greetings = ['SEJA BEM VINDO!', 'AQUECENDO MOTORES!']
+const word = ref('SEJA BEM VINDO!')
+const interval = ref(2000)
+
+const { pause, resume, isActive } = useIntervalFn(() => {
+  word.value = greetings[rand(0, greetings.length - 1)]
+}, interval)
+// EXPERIMENTAL
+
 interface InterfaceProps {
     name?: string;
     avatar_url?: string;
@@ -25,7 +39,6 @@ function size(v: number) {
 // DIMENSÃO DA TELA
 const { width, height } = useWindowSize();
 // ------------------------------------------------------
-
 
 const collectData = ref<InterfaceProps>();
 const isOpenModal = ref(false);
@@ -166,7 +179,10 @@ const explode = async () => {
             <div class="border  h-fit w-full dark:bg-token_bgHeader
         rounded-md dark:border-msDarkHeader">
                 <article class="p-6">
-                    <h2 class="pb-4 dark:text-gray-400">Sobre</h2>
+                    <h2 class="pb-4 dark:text-gray-400 flex items-center justify-between">
+                    Sobre
+                    <span class="text-xs">{{ word }}</span>
+                    </h2>
 
                     <p class="leading-8 dark:text-gray-300 my-5">
                         Sou Desenvolvedor Front-end a mais de 2 anos, com uma leve paixão no mercado
