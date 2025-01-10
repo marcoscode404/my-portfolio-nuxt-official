@@ -45,6 +45,7 @@ module.exports = {
         },
         fontFamily: {
             'body': ['"Open Sans"'],
+            jersey: ['Jersey10', 'sans-serif'],
         },
     },
     plugins: [],

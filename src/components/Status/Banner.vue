@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import brImage from '../../static/images/banner01.jpeg'; 
+
 const items = [
-  'https://picsum.photos/1920/1080?random=1',
+  brImage,
   'https://picsum.photos/1920/1080?random=2',
   'https://picsum.photos/1920/1080?random=3',
   'https://picsum.photos/1920/1080?random=4',
@@ -31,10 +33,10 @@ onMounted(() => {
     :ui="{ item: 'basis-full', arrows: {
     wrapper: 'flex items-center justify-between !bg-red-500'
   }, }"
-    class="overflow-hidden"
+    class="overflow-hidden h-44 lg:h-fit"
     :arrows="false"
   >
-    <img :src="item" class="w-full" draggable="false">
+    <img :src="item" class="w-full object-cover	object-center" draggable="false">
   </UCarousel>
 </template>
 

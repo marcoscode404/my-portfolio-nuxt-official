@@ -8,9 +8,10 @@
         <nav class="lg:container w-full flex justify-between mx-auto">
             <div class="w-full flex justify-between items-center break-normal h-10">
 
-                <div class="flex text-white gap-2 text-xl items-center font-bold">
+                <div class="flex font-jersey text-white gap-2
+                 text-2xl items-center font-bold tracking-wider">
                     <GlobalIcon name="lineicons:nuxt" class="h-8 w-8 text-purple-400"/>
-                    Andromedas
+                    Andromeda
                 </div>
 
                 <div class="flex gap-2" role="group">
@@ -35,23 +36,14 @@
         </nav>
     </header>
 
-    <main class="pt-10 main_print_tag max-h-screen dark:bg-[#121214]">
+    <main class="pt-10 main_print_tag max-h-screen
+      dark:bg-[#121214]">
         <slot></slot>
        
     </main>
 </template>
 
 <style>
-@media print {
-    .header_cabecalho {
-        display: none;
-    }
-
-    .main_print_tag {
-        padding-top: 0px;
-    }
-}
-
 .heightCalc {
     height: calc(100vh - 2rem);
 }
@@ -96,4 +88,13 @@
         transform: translateX(0);
     }
 }
+
+@font-face {
+    font-family: 'Jersey10';
+    src: url('../public/fonts/Jersey10-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 </style>
