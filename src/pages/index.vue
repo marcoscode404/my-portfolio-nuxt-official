@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useMemory, useOnline, useWindowSize } from '@vueuse/core';
 import ConfettiExplosion from "vue-confetti-explosion";
+const { $api, $toast } = useNuxtApp();
 
 import { useIntervalFn } from '@vueuse/core'
 import { rand } from '@vueuse/shared'
@@ -65,7 +66,7 @@ function getGitHubProfileInfos() {
         .then(data => {
             collectData.value = data;
         })
-        .catch((err) => { })
+        .catch((err) => {  $toast.error(getApiError(err))  })
 }
 
 onMounted(async () => {

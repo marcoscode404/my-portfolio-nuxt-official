@@ -1,41 +1,6 @@
 <script setup lang="ts">
-import { useMyManagerStore } from '~/store/ManagerTrips';
-import type { InterfaceSearchForTravelNotes } from '~/store/types';
-const { state, actions } = useMyManagerStore();
-
 const onOpenModal = defineModel<boolean>('onOpenModal')
 const emit = defineEmits(['close', 'onConfirmDelete']);
-
-const columns = [
-  {
-    key: 'id',
-    title: "ID",
-  },
-  {
-    key: 'numero',
-    title: "Número",
-  },
-  {
-    key: 'valor',
-  },
-  {
-    key: 'volume',
-  },
-  {
-    key: 'origem',
-  },
-  {
-    key: 'destino',
-  },
-  {
-    key: 'Editar',
-    fontSize: ".7rem", width: '5rem',
-  }, {
-    key: 'Apagar',
-    fontSize: ".7rem",
-    width: '5rem',
-  },
-]
 
 </script>
 
