@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import brImage from '../../static/images/banner01.jpeg'; 
+import brImage2 from '../../static/images/banner02.png'; 
+import brImage3 from '../../static/images/banner03.png'; 
 
 const items = [
   brImage,
-  'https://picsum.photos/1920/1080?random=2',
-  'https://picsum.photos/1920/1080?random=3',
+  brImage2,
+  brImage3,
   'https://picsum.photos/1920/1080?random=4',
   'https://picsum.photos/1920/1080?random=5',
   'https://picsum.photos/1920/1080?random=6'
