@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   // config pwa
   app: {
     head: {
-      title: 'WMS',
+      title: 'Andromeda',
       link: [{ rel: "manifest", href: "/manifest.json" }],
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",

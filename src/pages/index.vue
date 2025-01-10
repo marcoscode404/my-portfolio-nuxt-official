@@ -57,6 +57,11 @@ const linkSocialMedia = reactive({
         url: 'https://www.linkedin.com/in/marcosvini-colabdevs/',
         name: 'LINKDIN',
         style: 'w-6 h-6 dark:text-gray-300 text-blue-600',
+    },{
+        icon: 'line-md:instagram',
+        url: 'https://www.instagram.com/marcosviniicode/',
+        name: 'INSTAGRAM',
+        style: 'w-5 h-5 dark:text-purple-300 text-blue-600',
     }, ],
 })
 
@@ -92,13 +97,14 @@ function handleAccessLink(url: string) {
 
 <template>
     <main class="flex gap-7 container m-auto mt-4 h-[calc(100vh-100px)] flex-wrap">
-        <aside class="w-96">
-            <div class="fixed">
+        <aside class="lg:w-96 w-full">
+            <div class="lg:fixed">
                 <div>
                     <ConfettiExplosion :stageHeight="1000" />
                 </div>
 
-                <div class="w-96 border dark:bg-token_bgHeader overflow-hidden h-fit
+                <div class="lg:w-96 border dark:bg-token_bgHeader overflow-hidden 
+                h-fit
                 rounded-md dark:border-msDarkHeader leading-7 text-gray-700 dark:text-gray-300">
                     <!-- banner -->
                     <div class="bg-purple-500 w-full h-fit min-h-44">
@@ -138,7 +144,7 @@ function handleAccessLink(url: string) {
                             {{ collectData?.name }}
                         </h2>
 
-                        <p class="text-center dark:opacity-75 opacity-95 text-sm leading-6">
+                        <p class="text-center dark:opacity-75 lg:opacity-95 text-sm leading-6">
                             {{ collectData?.bio }}
                         </p>
 
@@ -164,7 +170,7 @@ function handleAccessLink(url: string) {
                 </div>
 
                 <!-- links -->
-                <div class="w-96 mt-4 border dark:bg-token_bgHeader overflow-hidden h-fit
+                <div class="lg:w-96 mt-4 border dark:bg-token_bgHeader overflow-hidden h-fit
                 rounded-md dark:border-msDarkHeader leading-7
                 text-gray-700 dark:text-gray-300">
                     <!-- banner -->
@@ -272,7 +278,7 @@ function handleAccessLink(url: string) {
 
             <!-- metricas nerdianas -->
             <div class="border  h-fit w-full dark:bg-token_bgHeader
-        rounded-md dark:border-msDarkHeader">
+        rounded-md dark:border-msDarkHeader mb-10">
                 <article class="p-6">
                     <h2 class="pb-4 dark:text-gray-400">
                         Metricas Nerdianas

@@ -203,7 +203,7 @@ const _uzCUTyDTxd = (function(nitro) {
 
 const rootDir = "/home/marcos-vini/Documentos/www/my-portfolio-nuxt-official";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"my website description"}],"link":[{"rel":"manifest","href":"/manifest.json"}],"style":[],"script":[],"noscript":[],"title":"WMS","charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"my website description"}],"link":[{"rel":"manifest","href":"/manifest.json"}],"style":[],"script":[],"noscript":[],"title":"Andromeda","charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
 
 const appRootTag = "div";
 
@@ -638,6 +638,7 @@ const _inlineRuntimeConfig = {
       },
       "navigation": {
         "fields": [
+          "layout",
           "layout"
         ]
       },
@@ -763,6 +764,7 @@ const _inlineRuntimeConfig = {
     },
     "navigation": {
       "fields": [
+        "layout",
         "layout"
       ]
     },
