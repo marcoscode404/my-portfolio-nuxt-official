@@ -12,7 +12,7 @@ const word = ref('SEJA BEM VINDO!')
 const interval = ref(2000)
 
 const { pause, resume, isActive } = useIntervalFn(() => {
-  word.value = greetings[rand(0, greetings.length - 1)]
+    word.value = greetings[rand(0, greetings.length - 1)]
 }, interval)
 // EXPERIMENTAL
 
@@ -45,7 +45,17 @@ const isOpenModal = ref(false);
 
 const linkSocialMedia = reactive({
     github: 'marcoscode404',
-    linkdin: 'tetse',
+    links: [{
+        icon: 'line-md:github-loop',
+        url: 'https://github.com/marcoscode404',
+        name: 'GITHUB',
+        style: 'dark:bg-msDarkHover bg-slate-200 rounded-full p-2',
+    }, {
+        icon: 'ri:linkedin-fill',
+        url: 'https://www.linkedin.com/in/marcosvini-colabdevs/',
+        name: 'LINKDIN',
+        style: 'w-6 h-6 dark:text-gray-300 text-blue-600',
+    }, ],
 })
 
 function getGitHubProfileInfos() {
@@ -71,6 +81,10 @@ const explode = async () => {
     await nextTick();
     visible.value = true;
 };
+
+function handleAccessLink(url: string) {
+    window.open(url, 'blanck')
+}
 
 </script>
 
@@ -134,8 +148,7 @@ const explode = async () => {
                         <div class="flex justify-center my-7 text-xs">
                             <ConfettiExplosion v-if="visible" :stageHeight="1000" />
 
-                            <button @click="explode"
-                            class="dark:bg-msDarkHover py-1.5 dark:text-gray-100 rounded-md 
+                            <button @click="explode" class="dark:bg-msDarkHover py-1.5 dark:text-gray-100 rounded-md 
                                 px-4 font-semibold bg-slate-50 border dark:border-gray-600">
                                 <span class="dark:text-yellow-400 text-yellow-500 mr-1.5">JS</span>
                                 JAVASCRIPT
@@ -155,20 +168,16 @@ const explode = async () => {
                     <!-- banner -->
                     <div class="p-6">
                         links
-                        <ul class="py-5 flex gap-5">
-                            <li>
-                                <button class="dark:bg-msDarkHover 
-                                bg-slate-200 rounded-full p-2">
-                                    <GlobalIcon name="line-md:github-loop" />
-                                </button>
-                            </li>
-                            <li>
-                                <button class="bg-slate-200 dark:bg-msDarkHover rounded-full p-2">
-                                    <GlobalIcon name="ri:linkedin-fill"
-                                        class="w-6 h-6 dark:text-gray-300 text-blue-600" />
-                                </button>
-                            </li>
-                        </ul>
+                        <div class="flex gap-4">
+                            <ul v-for="(link, index) in linkSocialMedia.links" :key="index" class="py-5 flex gap-5">
+                                <li>
+                                    <button @click="handleAccessLink(link.url)"
+                                        class="bg-slate-200 dark:bg-msDarkHover rounded-full p-2">
+                                        <GlobalIcon :name="link.icon" :class="link.style"/>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,8 +189,8 @@ const explode = async () => {
         rounded-md dark:border-msDarkHeader">
                 <article class="p-6">
                     <h2 class="pb-4 dark:text-gray-400 flex items-center justify-between">
-                    Sobre
-                    <span class="text-xs">{{ word }}</span>
+                        Sobre
+                        <span class="text-xs">{{ word }}</span>
                     </h2>
 
                     <p class="leading-8 dark:text-gray-300 my-5">
