@@ -43,6 +43,7 @@ const { width, height } = useWindowSize();
 
 const collectData = ref<InterfaceProps>();
 const isOpenModal = ref(false);
+const technologies = ref(['JAVASCRIPT', 'TYPESCRIPT', 'PYTHON', 'VUE', 'NUXT', 'REACT', 'FIGMA', 'TAILWINDCSS', 'LINUX', 'WINDOWNS']);
 
 const linkSocialMedia = reactive({
     github: 'marcoscode404',
@@ -221,16 +222,9 @@ function handleAccessLink(url: string) {
                         <div>
                             <strong>Tecnologias</strong>
                             <div class="flex flex-wrap gap-2 mt-2">
-                                <UBadge color="gray" label="JAVASCRIPT" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="TYPESCRIPT" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="PYTHON" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="VUE" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="NUXT" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="REACT" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="FIGMA" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="TAILWINDCSS" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="LINUX" class="dark:bg-token_bgDark font-bold" />
-                                <UBadge color="gray" label="WINDOWNS" class="dark:bg-token_bgDark font-bold" />
+                                <div v-for="(technology, index) in technologies" :key="index" >
+                                    <UBadge :label="technology" class="dark:bg-token_bgDark font-bold" color="gray"/>
+                                </div>
                             </div>
 
                             <div class="flex flex-col mt-4">
@@ -238,7 +232,6 @@ function handleAccessLink(url: string) {
                                 <div class="flex gap-2 mt-2">
                                     <UBadge color="gray" label="HELP DESK" class="dark:bg-token_bgDark font-bold" />
                                     <UBadge color="gray" label="PHOTOMAKER" class="dark:bg-token_bgDark font-bold" />
-
                                     <UBadge color="gray" label="EDIÇÃO" class="dark:bg-token_bgDark font-bold" />
                                 </div>
                             </div>
