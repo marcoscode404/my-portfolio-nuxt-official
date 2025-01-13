@@ -187,6 +187,8 @@ function handleAccessLink(url: string) {
                             </ul>
                         </div>
                     </div>
+
+                    <audio controls class="h-5 w-56 mx-5 mb-10" />
                 </div>
             </div>
         </aside>
