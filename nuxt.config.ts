@@ -1,10 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import Markdown from 'vite-plugin-md';
-
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
 
-  modules: ["nuxt-icon", "@pinia/nuxt", "@nuxt/ui", "@nuxt/content"],
+  modules: ["nuxt-icon", "@pinia/nuxt", "@nuxt/ui"],
   content: {
     documentDriven: true,
   },
@@ -25,7 +23,7 @@ export default defineNuxtConfig({
   css: ['floating-vue/dist/style.css', '~/assets/css/componentStyles/style.css', '~/assets/css/componentStyles/global.css'],
 
   colorMode: {
-    preference: 'light'
+    preference: 'dark'
   },
 
   // config pwa
@@ -62,7 +60,6 @@ export default defineNuxtConfig({
     },
     assetsInclude: ['**/*.xlsx', '**/*.mp4'],
     vueJsx: {optimize: true},
-    plugins: [Markdown()],
   },
   extensions: ['.vue', '.md'],
 
