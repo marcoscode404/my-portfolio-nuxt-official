@@ -1,4 +1,0 @@
-declare module '#content/server' {
-  const serverQueryContent: typeof import('/home/marcos-vini/Documentos/www/my-portfolio-nuxt-official/node_modules/.pnpm/@nuxt+content@2.13.4_ioredis@5.4.1_magicast@0.3.5_nuxt@3.14.159_@parcel+watcher@2.5.0_@types+_fh3hmswv65fje6ad4im3qt7fva/node_modules/@nuxt/content/dist/runtime/legacy/types').serverQueryContent
-  const parseContent: typeof import('/home/marcos-vini/Documentos/www/my-portfolio-nuxt-official/node_modules/.pnpm/@nuxt+content@2.13.4_ioredis@5.4.1_magicast@0.3.5_nuxt@3.14.159_@parcel+watcher@2.5.0_@types+_fh3hmswv65fje6ad4im3qt7fva/node_modules/@nuxt/content/dist/runtime/server').parseContent
-}
